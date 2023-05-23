@@ -24,10 +24,7 @@
                     <h3 class="text-danger">supprimer ton combattant =========================></h3>
                     <a href="/suppLeCombattant?combattantId=<?= $combattant->combattantId ?>" class="btn btn-secondary">supprimer</a>
                 </div>
-                <div class="flex">
-                    <h3 class="text-danger">modifier ton combattant =========================></h3>
-                    <a href="/updateCombattant?combattantId=<?= $combattant->combattantId ?>" class="btn btn-secondary">modifier</a>
-                </div>
+                
         </div>
     <?php endforeach ?>
 </div>

@@ -5,7 +5,7 @@
 
 <form method="post" action="">
     <fieldset>
-        <legend><h4>Creer un combattant</h4></legend>
+        <legend><h4><?php if(isset($combattant)) : ?>Modifier un combattant<?php else : ?>Creer un combattant<?php endif ?></h4></legend>
         <div class="my-div">
             <section>
                 <?php if(isset($_SESSION['user'])) : ?>
@@ -29,7 +29,7 @@
                                 <?php foreach ($competences as $competence) : ?>
                                     <option value="<?= $competence->competenceId ?>"><?= $competence->competenceNom ?></option>
                                 <?php endforeach ?>
-                            </select>
+                        </select>
                     </div>
                         <div class="flex space-evenly">
                             <button name="btnEnvoi" value="envoyer"><?php if (isset($combattant)) : ?>Modifier<?php else : ?>Ajouter<?php endif ?></button>

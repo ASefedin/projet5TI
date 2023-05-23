@@ -43,3 +43,22 @@ function deletecategorieCombattant($pdo)
         die($message);
     }
 }
+
+function updateCategorieCombattant($pdo)
+{
+    try {
+        $query = 'update combattant set combattantNom = :combattantNom, combattantPrenom = :combattantPrenom, combattantAge = :combattantAge, combattantDescription = :combattantDescription, combattantIllustration = :combattantIllustration where userId = :userId';
+        $modif = $pdo->prepare($query);
+        $modif->execute([
+            'combattantNom' => $_POST["nom"],
+            'combattantPrenom' => $_POST["prenom"],
+            'combattantAge' => $_POST["age"],
+            'combattantDescription' => $_POST["description"],
+            'combattantIllustration' => $_POST["illustration"],
+            'userId' => $_SESSION["user"]-> userId
+        ]);
+    } catch (PDOException $e) {
+        $message = $e->getMessage();
+        die($message);
+    }
+}

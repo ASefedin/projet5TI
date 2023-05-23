@@ -1,4 +1,9 @@
-<h1>Le combattant</h1>
+<div class="flex space-between">
+        <h1>Le combattant</h1>
+        <div class="flex">
+                <a href="/updateCombattant?combattantId=<?= $combattant->combattantId ?>" class="btn btn-secondary">modifier</a>
+        </div>
+</div>
 <div class="">  
         <ol>
                 <li><p> image</p><img id="combattantImage" src=<?= $combattant->combattantIllustration?> alt=""></li>

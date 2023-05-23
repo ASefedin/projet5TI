@@ -98,7 +98,12 @@ function createCombattant($pdo)
         $query = 'insert into combattant (combattantNom, combattantPrenom, combattantAge, combattantDescription, combattantIllustration, userId) values (:combattantNom, :combattantPrenom, :combattantAge, :combattantDescription, :combattantIllustration, :userId)';
         $ajouteUser = $pdo->prepare($query);
         $ajouteUser->execute([
-            
+            'combattantNom' => $_POST["nom"],
+            'combattantPrenom' => $_POST["prenom"],
+            'combattantAge' => $_POST["age"],
+            'combattantDescription' => $_POST["description"],
+            'combattantIllustration' => $_POST["illustration"],
+            'userId' => $_SESSION["user"]-> userId
         ]);
     } catch (PDOException $e) {
         $message = $e->getMessage();
@@ -106,10 +111,10 @@ function createCombattant($pdo)
     }
 }
 
-function updateCombattant($dbh)
+function updateCombattant($pdo)
 {
     try {
-        $query = 'update combattant set combattantNom = :combattantNom, combattantPrenom = :combattantPrenom, combattantDescription = :combattantDescription, combattantIllustration = :combattantIllustration where userId = :userId';
+        $query = 'update combattant set combattantNom = :combattantNom, combattantPrenom = :combattantPrenom, combattantAge = :combattantAge, combattantDescription = :combattantDescription, combattantIllustration = :combattantIllustration where userId = :userId';
         $modif = $pdo->prepare($query);
         $modif->execute([
             'combattantNom' => $_POST["nom"],
@@ -117,7 +122,7 @@ function updateCombattant($dbh)
             'combattantAge' => $_POST["age"],
             'combattantDescription' => $_POST["description"],
             'combattantIllustration' => $_POST["illustration"],
-            'userId' => $_GET["user"]-> userId
+            'userId' => $_SESSION["user"]-> userId
         ]);
     } catch (PDOException $e) {
         $message = $e->getMessage();
