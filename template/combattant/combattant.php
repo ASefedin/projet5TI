@@ -20,11 +20,12 @@
                 <h3 class="text-danger">plus d'info =========================></h3>
                 <a href="/voirLeCombattant?combattantId=<?= $combattant->combattantId ?>" class="btn btn-secondary">Clique</a>
             </div>
+            <?php if(isset($_SESSION['user'])) : ?>
                 <div class="flex">
                     <h3 class="text-danger">supprimer ton combattant =========================></h3>
                     <a href="/suppLeCombattant?combattantId=<?= $combattant->combattantId ?>" class="btn btn-secondary">supprimer</a>
                 </div>
-                
+            <?php endif ?>
         </div>
     <?php endforeach ?>
 </div>

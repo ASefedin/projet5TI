@@ -48,7 +48,7 @@ elseif ($uri === "/createCombattant" ) {
 
 elseif (str_contains($uri,'/updateCombattant')) {
     if (isset($_POST['btnEnvoi'])) {
-        updateCombattant($pdo);
+        updateCombattant($pdo, $_GET["combattantId"]);
         deletecategorieCombattant($pdo);
         deletecompetenceCombattant($pdo);
         for ($i = 0; $i < count($_POST["categorie"]); $i++) {

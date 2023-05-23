@@ -111,10 +111,10 @@ function createCombattant($pdo)
     }
 }
 
-function updateCombattant($pdo)
+function updateCombattant($pdo, $combattantId)
 {
     try {
-        $query = 'update combattant set combattantNom = :combattantNom, combattantPrenom = :combattantPrenom, combattantAge = :combattantAge, combattantDescription = :combattantDescription, combattantIllustration = :combattantIllustration where userId = :userId';
+        $query = 'update combattant set combattantNom = :combattantNom, combattantPrenom = :combattantPrenom, combattantAge = :combattantAge, combattantDescription = :combattantDescription, combattantIllustration = :combattantIllustration where combattantId = :combattantId';
         $modif = $pdo->prepare($query);
         $modif->execute([
             'combattantNom' => $_POST["nom"],
@@ -122,7 +122,7 @@ function updateCombattant($pdo)
             'combattantAge' => $_POST["age"],
             'combattantDescription' => $_POST["description"],
             'combattantIllustration' => $_POST["illustration"],
-            'userId' => $_SESSION["user"]-> userId
+            'combattantId' => $combattantId
         ]);
     } catch (PDOException $e) {
         $message = $e->getMessage();

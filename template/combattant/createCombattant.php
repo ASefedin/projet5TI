@@ -31,9 +31,13 @@
                                 <?php endforeach ?>
                         </select>
                     </div>
+
+                    <?php if(isset($_SESSION['user'])) : ?>
                         <div class="flex space-evenly">
                             <button name="btnEnvoi" value="envoyer"><?php if (isset($combattant)) : ?>Modifier<?php else : ?>Ajouter<?php endif ?></button>
                         </div>
+                    <?php endif ?>
+                        
                 <?php endif ?>
             </section>
         </div>
