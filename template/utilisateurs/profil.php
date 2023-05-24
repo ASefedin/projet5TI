@@ -4,7 +4,7 @@
         <ol>
             <div>
                 <li>Nom</li>
-                <p><?= $_SESSION["user"]->nomUser ?></p>
+                <p><?= $_SESSION["user"]->nomUser ?></p> <!--afficher une coordonnée dans la base de donnée-->
             </div>
             <div>
                 <li>Prénom</li>

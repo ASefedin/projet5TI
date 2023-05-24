@@ -1,11 +1,11 @@
 <form method="post" action="">
     <fieldset>
-        <legend><?php if(isset($_SESSION["user"])) : ?>Modifier<?php else : ?>Inscription<?php endif ?></legend>
+        <legend><?php if(isset($_SESSION["user"])) : ?>Modifier<?php else : ?>Inscription<?php endif ?></legend> <!--si l'utilisateur est connecte alors ont lui propose de modifier sinon il dois s'inscrire pour avoir cette fonctionnalité-->
         <div class="mb-3">
             <label for="Nom" class="form-label">Nom</label>
-            <input type="text" placeholder="Nom" class="form-control" id="Nom" name="Nom" value="<?php if(isset($_SESSION["user"])) : ?><?= $_SESSION["user"]->nomUser ?><?php endif ?>" >
+            <input type="text" placeholder="Nom" class="form-control" id="Nom" name="Nom" value="<?php if(isset($_SESSION["user"])) : ?><?= $_SESSION["user"]->nomUser ?><?php endif ?>" > <!--recupere les infos par apports a la bdd-->
 
-            <?php if(isset($messageErrorLogin["Nom"])) : ?><p><?= $messageErrorLogin["Nom"] ?></p> <?php endif ?>
+            <?php if(isset($messageErrorLogin["Nom"])) : ?><p><?= $messageErrorLogin["Nom"] ?></p> <?php endif ?> <!--aucune idée-->
         </div>
         <div class="mb-3">
             <label for="Prenom" class="form-label">Prenom</label>

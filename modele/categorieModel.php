@@ -6,7 +6,7 @@ function selectAllCategories($pdo)
         $query = "select * from categorie";
         $selectAllCategories = $pdo->prepare($query);
         $selectAllCategories->execute();
-        $categories = $selectAllCategories->fetchAll();
+        $categories = $selectAllCategories->fetchAll(); 
         return $categories;
     } catch (PDOException $e) {
         $message = $e->getMessage();

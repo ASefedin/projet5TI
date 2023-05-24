@@ -7,12 +7,11 @@ $uri = $_SERVER["REQUEST_URI"];
 
 if($uri === "/inscription"){
     if(isset($_POST["btnEnvoi"])){
-        $messageError=VerifEmptyData();
+        $messageError=VerifEmptyData(); //message d'erreur
         if (!$messageError) {
-            createUser($pdo);
+            createUser($pdo); 
             header('location:/connexion');
         }
-        
     }
     require_once "template/utilisateurs/inscriptionOrEditProfil.php";
 }elseif ($uri === "/connexion") {
@@ -22,7 +21,7 @@ if($uri === "/inscription"){
     }
     require_once "template/utilisateurs/connexion.php";
 }elseif ($uri === "/deconnexion") {
-    session_destroy();
+    session_destroy(); // zmh detruire la session ne plus etre considere comme $_SESSION
     header('location:/index.php');
 }elseif ($uri === "/profil") {
     
@@ -30,13 +29,13 @@ if($uri === "/inscription"){
 }elseif ($uri === "/modifyProfil") {
     if(isset($_POST["btnEnvoi"])){
         updateUser($pdo);
-        reloadSession($pdo);
+        reloadSession($pdo); //windows R
         header("location:/profil");
     }
     require_once "template/utilisateurs/inscriptionOrEditProfil.php";
 }elseif ($uri === "/deleteProfil") {
     deleteProfil($pdo);
-    deleteAllCombattantUsers($pdo);
+    deleteAllCombattantUsers($pdo); 
     session_destroy();
     header("location:/index.php");
     require_once "template/utilisateurs/inscriptionOrEditProfil.php";

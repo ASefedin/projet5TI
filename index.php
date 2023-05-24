@@ -25,10 +25,8 @@
         </div>
         <ul class="flex space-evenly">
             <li class="menu"><a href="/index.php">Home</a></li>
-            <?php if(isset($_SESSION['user'])) : ?>
-                <li class="menu"><a href="mesCombattants">mes combattants</a></li>
+            <?php if(isset($_SESSION['user'])) : ?> <!--si l'utilisateur est connecte-->
                 <li  class="menu"><a href="profil">Page profil</a></li>
-
             <?php endif ?>
             <li  class="menu">
                 <?php if(isset($_SESSION['user'])) : ?>
