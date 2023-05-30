@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 8.0.32, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.27, for Win64 (x86_64)
 --
--- Host: localhost    Database: sefedin
+-- Host: 10.10.51.252    Database: sefedin
 -- ------------------------------------------------------
--- Server version	8.0.32
+-- Server version	8.0.27
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -16,27 +16,32 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `categorie`
+-- Table structure for table `combattant_competence`
 --
 
-DROP TABLE IF EXISTS `categorie`;
+DROP TABLE IF EXISTS `combattant_competence`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `categorie` (
-  `categorieId` int NOT NULL AUTO_INCREMENT,
-  `categoriePoid` varchar(255) NOT NULL,
-  PRIMARY KEY (`categorieId`)
-) ENGINE=InnoDB AUTO_INCREMENT=48 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+CREATE TABLE `combattant_competence` (
+  `combattantCompetenceId` int NOT NULL AUTO_INCREMENT,
+  `combattantId` int DEFAULT NULL,
+  `competenceId` int DEFAULT NULL,
+  PRIMARY KEY (`combattantCompetenceId`),
+  KEY `combattantId` (`combattantId`),
+  KEY `competenceId` (`competenceId`),
+  CONSTRAINT `combattant_competence_ibfk_1` FOREIGN KEY (`combattantId`) REFERENCES `combattant` (`combattantId`),
+  CONSTRAINT `combattant_competence_ibfk_2` FOREIGN KEY (`competenceId`) REFERENCES `competence` (`competenceId`)
+) ENGINE=InnoDB AUTO_INCREMENT=59 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `categorie`
+-- Dumping data for table `combattant_competence`
 --
 
-LOCK TABLES `categorie` WRITE;
-/*!40000 ALTER TABLE `categorie` DISABLE KEYS */;
-INSERT INTO `categorie` VALUES (1,'56,7 kg'),(2,'57,2 kg à 61,2 kg'),(3,'61,7 kg à 65,8 kg'),(4,'66,2 kg à 70,3 kg'),(5,'70,8 kg à 77,1 kg'),(6,'77,6 kg à 83,9 kg'),(7,'84,4 kg à 93,0 kg'),(8,'93,5 kg à 120,2 kg'),(9,'56,7 kg'),(10,'57,2 kg à 61,2 kg'),(11,'61,7 kg à 65,8 kg'),(12,'66,2 kg à 70,3 kg'),(13,'70,8 kg à 77,1 kg'),(14,'77,6 kg à 83,9 kg'),(15,'84,4 kg à 93,0 kg'),(16,'93,5 kg à 120,2 kg');
-/*!40000 ALTER TABLE `categorie` ENABLE KEYS */;
+LOCK TABLES `combattant_competence` WRITE;
+/*!40000 ALTER TABLE `combattant_competence` DISABLE KEYS */;
+INSERT INTO `combattant_competence` VALUES (1,5,4),(3,7,2),(4,2,6),(6,8,NULL),(7,8,NULL),(58,2,3);
+/*!40000 ALTER TABLE `combattant_competence` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -48,4 +53,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-05-19 23:55:26
+-- Dump completed on 2023-05-25 16:09:36

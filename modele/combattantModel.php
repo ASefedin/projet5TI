@@ -28,8 +28,7 @@ function selectAllCombattantUsers($pdo)
 }
 
 function selectLeCombattant($pdo)
-{
-    
+{ 
     try {
         
         $query = "select * from combattant where combattantId = :combattantId";

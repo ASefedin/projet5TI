@@ -18,12 +18,12 @@
             </div>
             <div class="flex">
                 <h3 class="text-danger">plus d'info =========================></h3>
-                <a href="/voirLeCombattant?combattantId =<?= $combattant->combattantId ?>" class="btn btn-secondary">Clique</a> <!--/voirLeCombattant = uri--> <!--?combattantId = $combattant->combattantId = recup l'id du combattant en qst. En soi voir le combattant en qst grace a l'id.-->
+                <a href="/voirLeCombattant?combattantId=<?=$combattant->combattantId ?>" class="btn btn-secondary">Clique</a> <!--/voirLeCombattant = uri--> <!--?combattantId = $combattant->combattantId = recup l'id du combattant en qst. En soi voir le combattant en qst grace a l'id.-->
             </div>
             <?php if(isset($_SESSION['user'])) : ?> <!--si l'utilisateur est connecte-->
                 <div class="flex">
                     <h3 class="text-danger">supprimer ton combattant =========================></h3>
-                    <a href="/suppLeCombattant?combattantId=<?= $combattant->combattantId ?>" class="btn btn-secondary">supprimer</a> <!--/voirLeCombattant = uri--> <!--?combattantId = $combattant->combattantId = recup l'id du combattant en qst. En soi voir le combattant en qst grace a l'id.-->
+                    <a href="/suppLeCombattant?combattantId=<?=$combattant->combattantId ?>" class="btn btn-secondary">supprimer</a> <!--/voirLeCombattant = uri--> <!--?combattantId = $combattant->combattantId = recup l'id du combattant en qst. En soi voir le combattant en qst grace a l'id.-->
                 </div>
             <?php endif ?>
         </div>

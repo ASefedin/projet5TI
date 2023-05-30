@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 8.0.32, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.27, for Win64 (x86_64)
 --
--- Host: localhost    Database: sefedin
+-- Host: 10.10.51.252    Database: sefedin
 -- ------------------------------------------------------
--- Server version	8.0.32
+-- Server version	8.0.27
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -16,31 +16,32 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `utilisateur_combattant`
+-- Table structure for table `utilisateur`
 --
 
-DROP TABLE IF EXISTS `utilisateur_combattant`;
+DROP TABLE IF EXISTS `utilisateur`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `utilisateur_combattant` (
-  `utilisateurCombattantId` int NOT NULL AUTO_INCREMENT,
-  `combattantId` int DEFAULT NULL,
-  `userId` int DEFAULT NULL,
-  PRIMARY KEY (`utilisateurCombattantId`),
-  KEY `utilisateurId` (`userId`),
-  KEY `combattantId` (`combattantId`),
-  CONSTRAINT `utilisateur_combattant_ibfk_1` FOREIGN KEY (`userId`) REFERENCES `utilisateur` (`userId`),
-  CONSTRAINT `utilisateur_combattant_ibfk_2` FOREIGN KEY (`combattantId`) REFERENCES `combattant` (`combattantId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+CREATE TABLE `utilisateur` (
+  `userId` int NOT NULL AUTO_INCREMENT,
+  `nomUser` varchar(255) NOT NULL,
+  `prenomUser` varchar(255) NOT NULL,
+  `emailUser` varchar(255) NOT NULL,
+  `Mot_de_passeUser` varchar(255) NOT NULL,
+  `loginUser` varchar(255) NOT NULL,
+  `role` tinyint(1) NOT NULL,
+  PRIMARY KEY (`userId`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `utilisateur_combattant`
+-- Dumping data for table `utilisateur`
 --
 
-LOCK TABLES `utilisateur_combattant` WRITE;
-/*!40000 ALTER TABLE `utilisateur_combattant` DISABLE KEYS */;
-/*!40000 ALTER TABLE `utilisateur_combattant` ENABLE KEYS */;
+LOCK TABLES `utilisateur` WRITE;
+/*!40000 ALTER TABLE `utilisateur` DISABLE KEYS */;
+INSERT INTO `utilisateur` VALUES (1,'Felix ','Meier','FelixMeier@jourrapide.com','uog3Tae3','Pused1993',1),(2,'Akhtar ','Mohammad ','MohammadAkhtar@dayrep.com','oosh8Aevah2','Jast1999',1),(3,'Heath ','Charles','CharlesHeath@dayrep.com','chooh1aiT6ae','Drier1947',1),(4,'Parkin ','Kieran ','KieranParkin@dayrep.com','shuepoon2Ai','Dratity',1),(5,'Fu ','Wan ','WanFu@jourrapide.com','ieCh4Ooch','Suchaticke',1);
+/*!40000 ALTER TABLE `utilisateur` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -52,4 +53,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-05-19 23:55:25
+-- Dump completed on 2023-05-25 16:09:35

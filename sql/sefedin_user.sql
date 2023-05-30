@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 8.0.32, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.27, for Win64 (x86_64)
 --
--- Host: localhost    Database: sefedin
+-- Host: 10.10.51.252    Database: sefedin
 -- ------------------------------------------------------
--- Server version	8.0.32
+-- Server version	8.0.27
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -16,32 +16,32 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `combattant_categorie`
+-- Table structure for table `user`
 --
 
-DROP TABLE IF EXISTS `combattant_categorie`;
+DROP TABLE IF EXISTS `user`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `combattant_categorie` (
-  `combattantCategorieId` int NOT NULL AUTO_INCREMENT,
-  `categorieId` int DEFAULT NULL,
-  `combattantId` int DEFAULT NULL,
-  PRIMARY KEY (`combattantCategorieId`),
-  KEY `categorieId` (`categorieId`),
-  KEY `combattantId` (`combattantId`),
-  CONSTRAINT `combattant_categorie_ibfk_1` FOREIGN KEY (`categorieId`) REFERENCES `categorie` (`categorieId`),
-  CONSTRAINT `combattant_categorie_ibfk_2` FOREIGN KEY (`combattantId`) REFERENCES `combattant` (`combattantId`)
-) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+CREATE TABLE `user` (
+  `userId` int NOT NULL AUTO_INCREMENT,
+  `nomUser` varchar(255) NOT NULL,
+  `prenomUser` varchar(255) NOT NULL,
+  `loginUser` varchar(255) NOT NULL,
+  `Mot_de_passeUser` varchar(255) NOT NULL,
+  `role` varchar(255) NOT NULL,
+  `emailUser` varchar(255) NOT NULL,
+  PRIMARY KEY (`userId`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `combattant_categorie`
+-- Dumping data for table `user`
 --
 
-LOCK TABLES `combattant_categorie` WRITE;
-/*!40000 ALTER TABLE `combattant_categorie` DISABLE KEYS */;
-INSERT INTO `combattant_categorie` VALUES (1,5,4),(2,5,4),(3,10,3),(4,7,8),(5,16,10),(6,15,1),(30,3,119),(31,3,120),(32,3,121),(33,5,122),(34,6,122);
-/*!40000 ALTER TABLE `combattant_categorie` ENABLE KEYS */;
+LOCK TABLES `user` WRITE;
+/*!40000 ALTER TABLE `user` DISABLE KEYS */;
+INSERT INTO `user` VALUES (1,'ajdini','sefedin','test','test','user','180000@site.asty-mulin.be');
+/*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -53,4 +53,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-05-19 23:55:26
+-- Dump completed on 2023-05-25 16:09:35
