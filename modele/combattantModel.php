@@ -97,11 +97,11 @@ function createCombattant($pdo)
         $query = 'insert into combattant (combattantNom, combattantPrenom, combattantAge, combattantDescription, combattantIllustration, userId) values (:combattantNom, :combattantPrenom, :combattantAge, :combattantDescription, :combattantIllustration, :userId)';
         $ajouteUser = $pdo->prepare($query);
         $ajouteUser->execute([
-            'combattantNom' => $_POST["nom"],
-            'combattantPrenom' => $_POST["prenom"],
-            'combattantAge' => $_POST["age"],
-            'combattantDescription' => $_POST["description"],
-            'combattantIllustration' => $_POST["illustration"],
+            'combattantNom' => htmlentities($_POST["nom"]),
+            'combattantPrenom' => htmlentities($_POST["prenom"]),
+            'combattantAge' => htmlentities($_POST["age"]),
+            'combattantDescription' => htmlentities($_POST["description"]),
+            'combattantIllustration' => htmlentities($_POST["illustration"]),
             'userId' => $_SESSION["user"]-> userId
         ]);
     } catch (PDOException $e) {
@@ -116,11 +116,11 @@ function updateCombattant($pdo, $combattantId)
         $query = 'update combattant set combattantNom = :combattantNom, combattantPrenom = :combattantPrenom, combattantAge = :combattantAge, combattantDescription = :combattantDescription, combattantIllustration = :combattantIllustration where combattantId = :combattantId';
         $modif = $pdo->prepare($query);
         $modif->execute([
-            'combattantNom' => $_POST["nom"],
-            'combattantPrenom' => $_POST["prenom"],
-            'combattantAge' => $_POST["age"],
-            'combattantDescription' => $_POST["description"],
-            'combattantIllustration' => $_POST["illustration"],
+            'combattantNom' => htmlentities($_POST["nom"]),
+            'combattantPrenom' => htmlentities($_POST["prenom"]),
+            'combattantAge' => htmlentities($_POST["age"]),
+            'combattantDescription' => htmlentities($_POST["description"]),
+            'combattantIllustration' => htmlentities($_POST["illustration"]),
             'combattantId' => $combattantId
         ]);
     } catch (PDOException $e) {

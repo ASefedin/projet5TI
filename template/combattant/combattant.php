@@ -1,4 +1,3 @@
-<p>bonjour a tous, je vais vous presenter quelque combattant, celui qui vous plait le plus vous pouvez le choisir !</p>
 <?php if(isset($_SESSION['user'])) : ?> <!--si l'utilisateur est connecte-->
     <div class="flex space-evenly">
         <div class="">
@@ -7,6 +6,8 @@
         </div>
     </div>
 <?php endif ?>
+
+
 <div class="flex wrap space-evenly">
     <?php foreach ($combattants as $combattant) : ?> <!--récup tout les combattants-->
         <div class ="border">
